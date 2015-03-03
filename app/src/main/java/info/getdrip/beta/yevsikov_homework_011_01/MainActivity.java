@@ -1,6 +1,7 @@
 package info.getdrip.beta.yevsikov_homework_011_01;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ import java.io.OutputStreamWriter;
 public class MainActivity extends Activity implements OnClickListener {
 
     private EditText etText;
-    private Button btnSave, btnLoad;
+    private Button btnOpenDB;
     private CheckBox chb_001;
 
     private SharedPreferences sPref;
@@ -45,11 +46,11 @@ public class MainActivity extends Activity implements OnClickListener {
         chb_001 = (CheckBox) findViewById(R.id.chb_001);
         chb_001.setOnClickListener(this);
 
-        btnSave = (Button) findViewById(R.id.btnSave);
-        btnSave.setOnClickListener(this);
+        //btnSave = (Button) findViewById(R.id.btnSave);
+       // btnSave.setOnClickListener(this);
 
-        btnLoad = (Button) findViewById(R.id.btnLoad);
-        btnLoad.setOnClickListener(this);
+        btnOpenDB = (Button) findViewById(R.id.btnOpenDB);
+        btnOpenDB.setOnClickListener(this);
     }
 
     @Override
@@ -75,6 +76,11 @@ public class MainActivity extends Activity implements OnClickListener {
 
             case R.id.chb_001:
                 saveSettings(); //task 1 - saving checkBox state
+                break;
+
+            case R.id.btnOpenDB:
+                Intent intent = new Intent(this, DBActivity2.class);
+                startActivity(intent);
                 break;
 
             default:
